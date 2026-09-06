@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakariae Elabbadi</title>
+<meta name="description" content="Zakaria ElAbbadi">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+padding: 0;
+background: #050f0b;
+min-height: 100vh;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+font-size: 16px;
+line-height: 1.6;
+color: #e0e0e0;
+padding: 40px 20px;
+transition: background 0.3s, color 0.3s;
+}
+
+.wrapper {
+max-width: 850px;
+margin: 0 auto;
+display: flex;
+background: #0f1f27;
+border-radius: 12px;
+overflow: visible;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+min-height: calc(100vh - 80px);
+position: relative;
+transition: background 0.3s;
+}
+
+.sidebar {
+width: 300px;
+background: #0f1f27;
+padding: 40px 25px;
+position: fixed;
+top: 40px;
+left: 50%;
+transform: translateX(calc(-425px));
+flex-shrink: 0;
+height: calc(100vh - 80px);
+border-radius: 12px 0 0 12px;
+overflow: hidden;
+transition: background 0.3s;
+}
+
+.sidebar-content {
+position: relative;
+}
+
+.profile-section {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.profile-section h1 {
+color: #5dade2;
+font-size: 26px;
+font-weight: 600;
+margin-bottom: 10px;
+line-height: 1.3;
+}
+
+.profile-section h1 a {
+color: #5dade2;
+text-decoration: none;
+}
+
+.profile-section h1 a:hover {
+color: #7fc4ed;
+}
+
+.profile-section h2 {
+color: #b0b0b0;
+font-size: 17px;
+font-weight: 400;
+margin-bottom: 25px;
+}
+
+.profile-image {
+width: 180px;
+height: 180px;
+border-radius: 50%;
+object-fit: cover;
+margin: 0 auto 25px;
+display: block;
+border: 3px solid rgba(93, 173, 226, 0.3);
+}
+
+.cv-download {
+text-align: center;
+margin-top: 25px;
+}
+
+.cv-download a {
+display: inline-block;
+background: #5dade2;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+font-size: 15px;
+border-radius: 4px;
+transition: background 0.3s;
+}
+
+.cv-download a:hover {
+background: #3498db;
+}
+
+.main-content {
+flex: 1;
+padding: 40px 35px;
+overflow-y: auto;
+background: #2a2a2a;
+margin-left: 300px;
+border-radius: 0 12px 12px 0;
+transition: background 0.3s;
+}
+
+.main-content::-webkit-scrollbar {
+width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+background: rgba(0, 0, 0, 0.2);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+background: rgba(93, 173, 226, 0.3);
+border-radius: 4px;
+}
+
+.contact-table {
+width: 100%;
+margin-bottom: 20px;
+background: rgba(40, 40, 40, 0.8);
+border-radius: 6px;
+overflow: hidden;
+}
+
+.contact-table td {
+padding: 12px 15px;
+border: 1px solid rgba(93, 173, 226, 0.15);
+color: #c0c0c0;
+font-size: 14px;
+}
+
+.contact-table strong {
+color: #5dade2;
+font-weight: 600;
+}
+
+.contact-links {
+display: flex;
+gap: 25px;
+margin-bottom: 35px;
+background: rgba(40, 40, 40, 0.8);
+padding: 12px 15px;
+border-radius: 6px;
+}
+
+.contact-links a {
+color: #5dade2;
+text-decoration: none;
+font-size: 15px;
+}
+
+.contact-links a:hover {
+color: #7fc4ed;
+text-decoration: underline;
+}
+
+h2 {
+color: #5dade2;
+font-size: 22px;
+font-weight: 600;
+margin-top: 35px;
+margin-bottom: 18px;
+padding-bottom: 10px;
+border-bottom: 2px solid rgba(93, 173, 226, 0.3);
+}
+
+h2:first-of-type {
+margin-top: 0;
+}
+
+h3 {
+color: #7fc4ed;
+font-size: 18px;
+font-weight: 600;
+margin-top: 22px;
+margin-bottom: 8px;
+}
+
+h3 a {
+color: #7fc4ed;
+text-decoration: none;
+}
+
+h3 a:hover {
+color: #5dade2;
+text-decoration: underline;
+}
+
+p {
+margin-bottom: 14px;
+line-height: 1.7;
+color: #c0c0c0;
+font-size: 15px;
+}
+
+ul {
+margin-left: 22px;
+margin-bottom: 22px;
+color: #c0c0c0;
+}
+
+ul li {
+margin-bottom: 9px;
+line-height: 1.7;
+font-size: 15px;
+}
+
+strong {
+color: #e0e0e0;
+font-weight: 600;
+}
+
+hr {
+border: 0;
+border-top: 1px solid rgba(93, 173, 226, 0.2);
+margin: 35px 0;
+}
+
+.cert-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.cert-link:hover {
+    color: #5dade2;
+    text-decoration: underline;
+    padding-left: 6px;
+}
+
+@media (max-width: 900px) {
+body {
+padding: 20px 10px;
+}
+
+.wrapper {
+flex-direction: column;
+min-height: auto;
+overflow: hidden;
+}
+
+.sidebar {
+width: 100%;
+position: relative;
+top: 0;
+left: 0;
+transform: none;
+height: auto;
+border-radius: 12px 12px 0 0;
+}
+
+.sidebar-content {
+position: relative;
+}
+
+.main-content {
+padding: 35px 25px;
+margin-left: 0;
+border-radius: 0 0 12px 12px;
+}
+}
+
+@media (max-width: 768px) {
+body {
+padding: 15px 5px;
+}
+
+.sidebar {
+padding: 30px 20px;
+}
+
+.profile-section h1 {
+font-size: 22px;
+}
+
+.profile-section h2 {
+font-size: 15px;
+}
+
+.profile-image {
+width: 140px;
+height: 140px;
+}
+
+.main-content {
+padding: 25px 20px;
+}
+
+h2 {
+font-size: 20px;
+}
+
+h3 {
+font-size: 17px;
+}
+
+.contact-links {
+flex-direction: column;
+gap: 10px;
+}
+
+.contact-table td {
+font-size: 13px;
+padding: 10px 12px;
+}
+
+#Certifications p a {
+    transition: color 0.2s ease, text-decoration 0.2s ease, padding-left 0.2s ease;
+    cursor: pointer;
+}
+
+#Certifications p a:hover {
+    color: #5dade2 !important;
+    text-decoration: underline !important;
+    padding-left: 6px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+<aside class="sidebar">
+<div class="sidebar-content">
+<div class="profile-section">
+<h1 style="text-align: center;"><a href="#">Zakariae Elabbadi</a></h1>
+<h2 class="job-title">
+     Salesforce Administrator<br>
+</h2>
+<img src="Imgs/imgcv3.png" alt="Profile Photo" class="profile-image" />
+<div class="cv-download">
+    <a href="cv" download="Zakariae_Elabbadi_CV" target="_blank">Download My CV</a>
+</div>
+</div>
+</div>
+</aside>
+
+<main class="main-content">
+<table class="contact-table">
+<tbody>
+<tr>
+<td><strong>Location</strong>: Oujda, Morocco</td>
+<td><strong>Phone</strong>: +212641205577</td>
+</tr>
+</tbody>
+</table>
+
+<div class="contact-links">
+    <a href="mailto:zakariaelabbadi41@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+    <a href="https://linkedin.com/in/zakariae-el-abbadi-6672143b8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.salesforce.com/trailblazer/zakariaelabbadi" target="_blank" rel="noopener noreferrer">Trailhead</a>
+    <!-- <a href="https://app.hubspot.com/academy-profile/member/91832944" target="_blank" rel="noopener noreferrer">HubSpot</a> -->
+    <a href="https://public.tableau.com/app/profile/zakaria.elabbadi" target="_blank" rel="noopener noreferrer">Tableau</a>
+    <!-- <a href="https://www.kaggle.com/zakariaelabbadi" target="_blank" rel="noopener noreferrer">Kaggle</a> -->
+</div>
+
+<!-- About Section -->
+<h2 id="about">About</h2>
+<p>
+    Passionate <strong>Salesforce Administrator</strong> focused on learning, configuring, and maintaining CRM environments to help teams manage their workflows efficiently. Actively building hands-on skills through Salesforce Trailhead in user management, security controls, and platform customization. Additionally, I leverage my background in <strong>Data Analysis</strong> to help clean, organize, and turn CRM data into useful insights.
+</p>
+
+<!-- Experience Section -->
+<h2 id="experience">Experience</h2>
+
+<h3>Electronics Sales & Inventory Assistant</h3>
+<p><strong> 2025 - 2026 | Oujda, Morocco</strong></p>
+<ul>
+  <li>Managed daily sales of electronic devices, providing technical product recommendations to customers.</li>
+  <li>Tracked store inventory, managed stock levels, and recorded daily sales transactions.</li>
+  <li>Gained practical insights into retail operations, product demand trends, and customer preferences in the tech sector.</li>
+</ul>
+
+<h3>Mohammed I University Oujda | IT Support </h3>
+<p><strong>02/2023 – 06/2023 | Internship (5 Months) | Oujda, Morocco</strong></p>
+<ul>
+  <li>Assembled, configured, and upgraded desktop hardware components and peripherals across university departments.</li>
+  <li>Performed system formatting, operating system installations (Windows/Linux), and software deployment for end-users.</li>
+  <li>Diagnosed and troubleshooted daily hardware failures, software glitches, and basic network connectivity issues.</li>
+  <li>Provided hands-on technical helpdesk support, ensuring minimal downtime for staff and educational labs.</li>
+</ul>
+
+<h3>Commune d'Oujda | Financial Data Intern</h3>
+<p><strong>03/2022 – 04/2022 | Internship (1 Month) | Oujda, Morocco</strong></p>
+<ul>
+  <li>Assisted the Financial Resources Department in organizing and reviewing financial records and budget data.</li>
+  <li>Supported data entry and verification processes to ensure accuracy in local financial reporting.</li>
+  <li>Utilized tools like Excel to assist in preparing basic financial summaries and tracking revenue trends.</li>
+</ul>
+
+<!-- Skills Section (no hr before it) -->
+<h2 id="skills">Skills</h2>
+
+<h3>Technical Skills</h3>
+<ul>
+<li><strong>Programming Languages</strong>: Python, JavaScript, Apex</li>
+<li><strong>Data Analysis Libraries</strong>: Pandas, NumPy, Matplotlib, Seaborn</li>
+<li><strong>Databases</strong>: PostgreSQL, MySQL, BigQuery, SQLite</li>
+<li><strong>Tools</strong>: Git, Tableau, Google Sheet, Excel, Jupyter, Notion</li>
+</ul>
+
+<!-- Certifications Section -->
+<h2 id="Certifications">Certifications</h2>
+
+<p>
+  <strong><span class="cert-link" onclick="window.open('Imgs/Tableau Business.pdf', '_blank')">Tableau Business Intelligence Analyst Professional Certificate</span></strong><br />
+  Tableau From Salesforce
+</p>
+
+<p>
+  <strong><span class="cert-link" onclick="window.open('Imgs/Google Data Analytics.pdf', '_blank')">Google Data Analytics Professional Certificate</span></strong><br />
+  Google Professional Certificate
+</p>
+
+<p>
+  <strong><span class="cert-link" onclick="window.open('Imgs/PostgreSQL for Everybody.pdf', '_blank')">PostgreSQL for Everybody</span></strong><br />
+  University of Michigan
+</p>
+
+<!-- <p>
+  <strong><span class="cert-link" onclick="window.open('Imgs/Deutsch.pdf', '_blank')">Zertifikat Deutsch B1</span></strong><br />
+  Telc | Dec 2024
+</p>
+
+<p>
+  <strong><span class="cert-link" onclick="window.open('Imgs/EnimPrive.pdf', '_blank')">Information Technology Outsourcing Professional Training Certificate</span></strong><br />
+  ENIM PRIVE & ANAPEC Oujda (TAEHIL Program) | Dec 2022
+</p> -->
+
+
+
+<!-- <p>
+  <strong><span class="cert-link" onclick="window.open('اسم_الملف.pdf', '_blank')">اسم الشهادة</span></strong><br />
+  اسم المؤسسة
+</p> -->
+
+<hr /> 
+
+<!-- Education Section -->
+<h2 id="education">Education</h2>
+<p>
+  <strong>Specialized Technician Degree in Computer Networks</strong><br />
+  OFPPT | 2020 – 2022 | Oujda, Morocco
+</p>
+<p>
+  <strong>High School Diploma in Sciences (Baccalauréat)</strong><br />
+  High School Name | 2018 | Oujda, Morocco
+</p>
+
+<hr />
+
+<!-- Projects Section -->
+<!-- <h2 id="projects">Projects</h2>
+
+<ul>
+<li>
+<strong>First Project Name</strong> – Brief description of the project: its purpose, technologies used, your role, and outcomes achieved.
+</li>
+<li>
+<strong>Second Project Name</strong> – Short description of the second project with technologies and accomplishments.
+</li>
+<li>
+<strong>Third Project Name</strong> – Add more projects as needed.
+</li>
+<li>
+<strong>Fourth Project Name</strong> – Focus on projects that showcase your skills and achievements.
+</li>
+<li>
+<strong>Fifth Project Name</strong> – Include GitHub links or demos if available.
+</li>
+</ul>
+
+<hr /> -->
+
+<!-- Additional Information Section -->
+<h2 id="additional-info">Additional Information</h2>
+
+<ul>
+<li><strong>Languages</strong>: Arabic (Native), English (Fluent), Deutsch (B-1)</li>
+<li><strong>Date of Birth</strong>: January 2, 2000</li>
+<li><strong>Hobbies</strong>: Football, Swimming, Running</li>
+</ul>
+
+<hr />
+
+<!-- References Section -->
+<h2 id="references">References</h2>
+<p>All references are available upon request.</p>
+
+</main>
+</div>
+
+</body>
+</html>
